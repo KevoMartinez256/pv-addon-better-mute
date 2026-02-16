@@ -1,0 +1,35 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="pvaddonmute"
+version="1.0.0"
+displayName="pv-addon-better-mute"
+logoFile="pvaddonmute:icon.png"
+authors="Kevoelgamerpro, Chaparritas Studios"
+description='''
+Addon para Plasmo Voice que agrega comandos de moderación de voz. 
+Incluye /vcmod mute, unmute, lockdown y list para control total del chat de voz.
+'''
+
+[[dependencies.pvaddonmute]]
+modId="neoforge"
+type="required"
+versionRange="[21.1,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.pvaddonmute]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.pvaddonmute]]
+modId="plasmovoice"
+type="required"
+versionRange="[2.1,)"
+ordering="AFTER"
+side="BOTH"

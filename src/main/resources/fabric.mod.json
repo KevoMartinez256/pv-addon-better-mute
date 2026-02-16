@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "pvaddonmute",
+  "version": "${version}",
+  "name": "pv-addon-better-mute",
+  "description": "Plasmo Voice addon that adds /vcmod mute, unmute, lockdown and list commands.",
+  "authors": [
+    "Kevoelgamerpro",
+    "Chaparritas Studios"
+  ],
+  "license": "All Rights Reserved",
+  "icon": "assets/pvaddonmute/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.kevo.pvaddonmute.pvaddonmute"
+    ],
+    "client": [
+      "com.kevo.pvaddonmute.pvaddonmuteClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.14",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*",
+    "plasmovoice": ">=2.1.8"
+  }
+}

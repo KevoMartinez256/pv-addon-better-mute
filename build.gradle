@@ -1,0 +1,74 @@
+plugins {
+    id 'fabric-loom' version '1.15.3'
+    id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.fabricmc.net/' }
+    maven { url = 'https://repo.plo.su/' }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+    // Provided by the Plasmo Voice mod at runtime.
+    compileOnly 'su.plo.voice.api:server:2.0.3'
+    // Local runtime dependency for runClient/runServer development tests.
+    modLocalRuntime files("libs/plasmovoice-fabric-1.21-2.1.8.jar")
+    modLocalRuntime files("libs/fabric-permissions-api-0.3.1.jar")
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+    withSourcesJar()
+}
+
+loom {
+    runs {
+        server {
+            server()
+            vmArgs "-Dfabric.log.level=info"
+        }
+    }
+}
+
+def modBuildVersion = version
+
+processResources {
+    inputs.property "version", modBuildVersion
+    filesMatching("fabric.mod.json") {
+        expand "version": modBuildVersion
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release.set(21)
+}
+
+publishing {
+    publications {
+        create("mavenJava", MavenPublication) {
+            artifactId = project.archives_base_name
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url = uri("${project.projectDir}/repo")
+        }
+    }
+}
