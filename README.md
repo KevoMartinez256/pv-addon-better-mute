@@ -1,53 +1,90 @@
-﻿# PV Better Mute (Fabric 1.21.1)
+pv-addon-better-mute is an advanced moderation addon for Plasmo Voice, built for roleplay servers, SMP communities, events, and large staff teams that need full control over in-game voice chat.
 
-Port de `pv-addon-mute` a Fabric para trabajar una rama nueva sin tocar el proyecto NeoForge original.
+It provides a complete mute management system, global voice lockdown, and a powerful client-side admin HUD for fast moderation.
 
-## Comandos
-- `/vcmod mute <jugador> [razon]`
-- `/vcmod tempmute <jugador> <duracion> [razon]` (ej: `30s`, `10m`, `2h`, `1d`)
-- `/vcmod unmute <jugador>`
-- `/vcmod lockdown on`
-- `/vcmod lockdown off`
-- `/vcmod allow <jugador>`
-- `/vcmod disallow <jugador>`
-- `/vcmod status`
-- `/vcmod list`
+# **Features**
+- Advanced Voice Moderation
+  
+- Manual mute per player
+  
+- Temporary mute with custom duration
+  
+- Unmute per player
+  
+- Global voice lockdown (ON / OFF)
+  
+- Temporary lockdown (automatically disables after time expires)
+  
+- Allow / Disallow system during lockdown (voice whitelist per player)
+  
+- Automatically respects OPs during lockdown
+# 
 
-## Requisitos
-- Java 21
-- Minecraft/Fabric 1.21.1
-- Fabric Loader `0.16.14+`
-- Fabric API `0.116.8+1.21.1`
-- Plasmo Voice `2.1.8+` (dependencia obligatoria)
+# **Admin Panel (HUD / GUI)**
+- Opens with O key (keybind is fully configurable)
+  
+- Online player list with head/skin rendering
 
-## Build
-```bash
-./gradlew build
-```
+## Real-time status indicators:
 
-## Persistencia
-El mod guarda estado en:
-- `config/pv-better-mute-state.json`
+- Muted
+  
+- Temp Muted
+  
+- Lockdown
+  
+- Allowed
+  
+- OP
 
-Incluye:
-- estado de lockdown
-- lista de `allow`
-- mutes manuales permanentes/temporales
+## Per-player action buttons:
 
-## Dev Run
-Para pruebas locales, este repo usa:
-- `libs/plasmovoice-fabric-1.21-2.1.8.jar` como `modLocalRuntime`
-- `libs/fabric-permissions-api-0.3.1.jar` como `modLocalRuntime`
+- Temp
+  
+- Mute
+  
+- Unmute
+  
+- Allow
+  
+- Disallow
 
-Ejecuta:
-```bash
-./gradlew runClient
-```
+## Global controls:
 
-## Admin HUD
-- Tecla por defecto: `O`
-- Abre panel con jugadores online y botones:
-  - `Mute` / `Unmute`
-  - `Allow` / `Disallow`
-  - `Lockdown ON` / `Lockdown OFF`
-  - `Status`
+- Lockdown ON
+  
+- Lockdown OFF
+  
+- Temporary Lockdown
+  
+- Status
+  
+- Refresh
+  
+- Close
+  
+- Quick preset durations for temp mute
+  
+- Responsive layout (supports multiple resolutions)
+ #
+
+#  📌 Requirements
+ 
+Fabric 1.21.1
+
+Plasmo Voice installed on the server
+
+OP level 2 required to use staff commands
+#
+
+# 🎯 Perfect For
+
+Roleplay servers
+
+Political / government RP
+
+Large SMP communities
+
+Events and tournaments
+
+Servers requiring structured voice moderation
